@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studentResults">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Result App</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!--bootstrap scripts-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
+
+    <!--my styling-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!--    <div ng-include="'components/directives/navbar/navbar.html'"></div>-->
+    <navbar></navbar>
+
+    <div class="container">
+        <ng-view></ng-view>
+    </div>
+
+
+    <update-profile-info></update-profile-info>
+
+
+
+
+
+    <!--Angularjs cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    
+<!--    Angular animate-->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+<!--    angular sanitize-->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+    
+    
+    
+    
+
+    <!--Angularjs route-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+<!--    bootstrap-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+
+    <!--Main App Scripts-->
+    <script src="app.js"></script>
+    <script src="components/directives/navbar/navbar.js"></script>
+
+
+    <!-- Auth App Scripts -->
+    <script src="components/auth/auth.js"></script>
+    <script src="components/auth/services/tokenService.js"></script>
+    <script src="components/auth/services/userService.js"></script>
+    <script src="components/auth/services/authInterceptor.js"></script>
+    <script src="components/auth/signup/signup.js"></script>
+    <script src="components/auth/login/login.js"></script>
+    <script src="components/profile/profile.js"></script>
+    <script src="components/teacherProfile/teacherProfile.js"></script>
+     <script src="components/auth/logout/logout.js"></script>
+    <script src="components/auth/teacherSignup/teacherSignup.js"></script>
+    <script src="components/auth/teacherLogin/teacherLogin.js"></script>
+    
+    <!-- Class App Scripts -->
+    <script src="components/mainServices/subjectService.js"></script>
+
+<!--    modal script tags-->
+
+<script src="components/mainServices/modalServices/profileUpdateModal.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+
+<div class="row">  
+    <div class="col-md-8 col-md-offset-2">
+        <h1>{{userService.currentUser.name }}</h1>
+        <img src="https://static1.squarespace.com/static/54e8ba93e4b07c3f655b452e/t/56c2a04520c64707756f4267/1455596221531/" alt="Kittens" class="img-responsive">
+        <hr>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Change Password</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" class="form-control" ng-model="passwords.newPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="newPasswordRepeat">Repeat New Password</label>
+                        <input type="password" id="newPasswordRepeat" class="form-control" ng-model="passwords.newPasswordRepeat">
+                    </div>
+                    <button class="btn btn-primary" ng-click="changePassword(passwords)">Change Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 
