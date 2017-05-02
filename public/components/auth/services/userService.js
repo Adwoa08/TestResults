@@ -31,6 +31,7 @@ app.service("userService", ["$http", "$location", "tokenService", function ($htt
     this.login = function (user) {
         return $http.post("auth/studentLogin", user).then(function (response) {
             self.currentUser = response.data.firstName;
+            console.log()
             tokenService.setToken(response.data.token);
             return response;
         })

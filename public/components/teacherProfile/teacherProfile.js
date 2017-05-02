@@ -1,7 +1,11 @@
 var app = angular.module("studentResults");
 
 app.controller("teacherProfileCtrl", ["$scope", "$uibModal", "$log", "subjectService", "teacherObjectService", function ($scope, $uibModal, $log, subjectService, teacherObjectService) {
-
+    
+    $scope.profilePic = 
+    
+    
+    
     //The modal function
     $scope.showUpdateForm = function () {
         $scope.message = "button clicked";
