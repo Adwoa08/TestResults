@@ -1,9 +1,10 @@
 <script type="text/ng-template" id="profileUpdateModal.html">
     <div class="modal-header">
-        <h3 class="modal-title" id="modal-title">Profile Update Form</h3>
+        <h3 class="modal-title" id="modal-title">Profile Update Form <button class="btn btn-warning" ng-click="cancel()">x</button></h3>
     </div>
-        <form name="form.profileUpdate" novalidate ng-submit="showUpdateForm()">
-           <div class="modal-body" id="modal-body">
+    
+    <form name="form.profileUpdate" novalidate ng-submit="showUpdateForm()">
+        <div class="modal-body" id="modal-body">
             <div class="form-group">
                 <label for="Date of birth">Date of birth</label>
                 <input placeholder="Date of birth" tyep="date" id="newPassword" class="form-control" ng-model="profile.dateOfBirth">
@@ -23,11 +24,11 @@
                 <label for="phoneNumber">Phone</label>
                 <input placeholder="Phone number" id="phoneNumber" class="form-control" ng-model="profile.phoneNumber">
             </div>
-    </div>
-        </form>
+        </div>
+    </form>
     
     <div class="modal-footer">
-            <button class="btn btn-success" ng-click="saveProfile(profile); updating = !updating">Save</button>
-        </div>
-
+        <button class="btn btn-success" ng-click="saveProfile(profile)">Save</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
 </script>

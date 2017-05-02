@@ -7,7 +7,17 @@ var subject = require("../models/subjectSchema");
 
 
 
-//Posting subjects to the students
+//Subject
+teacherRouter.get("/subjects/admin", function(req, res){
+    var query = req.query | {};
+    subject.find(function(err, subjects){
+        if(err) res.status(500).send(err);
+        res.send(subjects);
+    })
+})
+
+
+
 teacherRouter.post("/subjects/admin", function (req, res) {
     var newSubject = new subject(req.body);
     newSubject.save(function (err, subject) {
@@ -31,7 +41,16 @@ teacherRouter.get("/students/:id", function (req, res) {
 
 
 
-//Editing the teacher's info
+//Teacher
+teacherRouter.get("/teacher/:id", function(req, res){
+    var query = req.query | {};
+    teacher.findOne(req.params.id, function(err, teacher){
+        if(err) res.status(500).send(err);
+        res.send(teacher);
+    })
+})
+
+
 teacherRouter.put("/teacher/:id", function(req, res){
     teacher.findOneAndUpdate(req.params.id, req.body, {new: true}, function(err, infoUpdate){
         res.send(infoUpdate);

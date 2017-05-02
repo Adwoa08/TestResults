@@ -1,8 +1,8 @@
 var app = angular.module("studentResults");
 
 app.controller("modalInstanceController", ["$scope", "$uibModalInstance", function($scope, $uibModalInstance){
-    
     $scope.form = {};
+    
     $scope.submitForm = function(){
         if($scope.form.profileUpdate.$valid){
             console.log("user form is in scope");
@@ -13,9 +13,9 @@ app.controller("modalInstanceController", ["$scope", "$uibModalInstance", functi
     }
     
     $scope.cancel = function(){
-        $uibModalInstance.dismissed("closed");
+        $uibModalInstance.dismiss("closed");
     }
-}])
+}]);
 
 
 app.directive("updateProfileInfo", [function(){

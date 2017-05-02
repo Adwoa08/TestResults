@@ -4,6 +4,7 @@
     <hr>
 </div>
 
+<div class="clear"></div>
 
 
 
@@ -20,6 +21,7 @@
         <div class="form-group">
             <label for="Subjects">Subject</label>
             <input placeholder="Type subject name" type="text" id="subject" class="form-control" ng-model="subject.subjectName">
+            <p class="text-danger" ng-show="message">{{message}}</p>
         </div>
 
         <button class="btn btn-success" ng-click="subjectPost(subject); editing = !editing">Send</button>
