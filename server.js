@@ -1,13 +1,13 @@
 var express = require("express");
 var app = express();
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 8000;
 var bodyParser = require("body-parser");
 var morgan = require("morgan");
 var config = require("./config");
 var mongoose = require("mongoose");
 var path = require("path");
 var teacherRoutes = require("./routes/teacherRoutes");
-var studentRoutes = require("./routes/studentRoutes");
+var classRoutes = require("./routes/classRoutes")
 var userAuthRoutes = require("./routes/userAuthRoutes");
 var expressJwt = require("express-jwt");
 
@@ -33,12 +33,7 @@ app.use("/auth", userAuthRoutes);
 app.use("/api", expressJwt({secret: config.secret}));
 
 //---posting subjects and results endpoint--
-app.use("/api", teacherRoutes);
-
-
-
-//getting results endpoint
-app.use("/api", studentRoutes);
+app.use("/api/classes", classRoutes)
 
 
 //--------connecting mongodb-------------------

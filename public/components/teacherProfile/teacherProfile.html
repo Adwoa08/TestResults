@@ -1,5 +1,5 @@
 <div class="col-md-8 col-md-offset-2">
-    <h1>{{userService.currentUser.firstName}}</h1>
+    <h1>{{teacherFirstName}}</h1>
     <img src="https://static1.squarespace.com/static/54e8ba93e4b07c3f655b452e/t/56c2a04520c64707756f4267/1455596221531/" alt="Kittens" class="img-responsive">
     <hr>
 </div>
@@ -53,10 +53,10 @@
         <div class="form-group">
             <label for="Subjects">Subject</label>
             <input placeholder="Type subject name" type="text" id="subject" class="form-control" ng-model="subject.subjectName">
-            <p class="text-danger" ng-show="message">{{message}}</p>
+            <p class="text-danger" ng-show="subjectInputMessage">{{subjectInputMessage}}</p>
         </div>
 
-        <button class="btn btn-success" ng-click="subjectPost(subject); editing = !editing">Send</button>
+        <button class="btn btn-success" ng-click="subjectPost(subject)">Send</button>
     </form>
     <!--Subject posting form Ends-->
     

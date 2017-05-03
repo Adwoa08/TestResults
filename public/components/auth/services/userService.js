@@ -3,7 +3,7 @@ var app = angular.module("studentResults.Auth");
 app.service("userService", ["$http", "$location", "tokenService", function ($http, $location, tokenService) {
     var self = this;
 
-    this.currentUser = {};
+//    this.currentUser = {};
 
 
 
@@ -30,8 +30,7 @@ app.service("userService", ["$http", "$location", "tokenService", function ($htt
 
     this.login = function (user) {
         return $http.post("auth/studentLogin", user).then(function (response) {
-            self.currentUser = response.data.firstName;
-            console.log()
+//            self.currentUser = response.data.firstName;
             tokenService.setToken(response.data.token);
             return response;
         })

@@ -38,13 +38,16 @@ var teacherSchema = new Schema({
         zipcode: String
     },
     phoneNumber: String,
-    
-    
-    
-    students: {
+
+    subject: {
         type: Schema.Types.ObjectId,
-        ref: "Student"
-    }
+        ref: "Subjects"
+    },
+
+    students: [{
+        type: Schema.Types.ObjectId,
+        ref: "Subjects"
+    }]
 });
 
 

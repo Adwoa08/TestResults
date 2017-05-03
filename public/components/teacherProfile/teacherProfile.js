@@ -1,34 +1,33 @@
 var app = angular.module("studentResults");
 
 app.controller("teacherProfileCtrl", ["$scope", "$uibModal", "$log", "subjectService", "teacherObjectService", function ($scope, $uibModal, $log, subjectService, teacherObjectService) {
-    
-    $scope.profilePic = 
-    
-    
-    
-    //The modal function
-    $scope.showUpdateForm = function () {
-        $scope.message = "button clicked";
-        console.log($scope.message);
-        var modalInstance = $uibModal.open({
 
-            templateUrl: "profileUpdateModal.html",
 
-            controller: "modalInstanceController",
-            scope: $scope,
-            resolve: {
-                profileUpdate: function () {
-                    return $scope.profileUpdate;
+
+
+        //The modal function
+        $scope.showUpdateForm = function () {
+            $scope.modalMessage = "button clicked";
+            console.log($scope.modalMessage);
+            var modalInstance = $uibModal.open({
+
+                templateUrl: "profileUpdateModal.html",
+
+                controller: "modalInstanceController",
+                scope: $scope,
+                resolve: {
+                    profileUpdate: function () {
+                        return $scope.profileUpdate;
+                    }
                 }
-            }
-        })
-        modalInstance.result.then(function (profileUpdate) {
-            $scope.selected = profileUpdate;
+            })
+            modalInstance.result.then(function (profileUpdate) {
+                $scope.selected = profileUpdate;
 
-        }, function () {
-            $log.info("modal dismissed");
-        })
-    }
+            }, function () {
+                $log.info("modal dismissed");
+            })
+        }
 
 
 
@@ -44,21 +43,22 @@ app.controller("teacherProfileCtrl", ["$scope", "$uibModal", "$log", "subjectSer
 
 
     $scope.subjectPost = function (subject) {
-        if ($scope.subject === '') {
-            $scope.message = "Please input a subject"
+        if (subject === undefined || Object.keys(subject).length === 0) {
+            $scope.subjectInputMessage = "Please input a subject"
         } else {
             subjectService.subjectPost(subject).then(function (response) {
                 $scope.subjects.push(response.data);
+                $scope.subjectInputMessage = ""
             })
         }
-        $scope.subject = '';
+        $scope.subject = {};
     }
 
 
-    
+
     //teacher
-    teacherObjectService.getTeacherObject().then(function(response){
-        
+    teacherObjectService.getTeacherObject().then(function (response) {
+        $scope.teacherFirstName = response.data.firstName;
     });
 
 

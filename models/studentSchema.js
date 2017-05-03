@@ -39,17 +39,8 @@ var studentSchema = new Schema({
         state: String,
         zipcode: Number
     },
-    phoneNumber: String,
-    
-    
-    
-
-    //chatting section
-    classMates: [{
-        type: Schema.Types.ObjectId,
-        ref: "Student"
-    }]
-
+    phoneNumber: String
+ 
 });
 
 
@@ -72,7 +63,7 @@ studentSchema.methods.checkPassword = function (passwordAttempt, callback) {
     });
 };
 
-studentSchema.methods.withoutPassword = function () {  
+studentSchema.methods.withoutPassword = function () {
     var student = this.toObject();
     delete student.password;
     return student;
