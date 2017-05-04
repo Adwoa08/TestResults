@@ -1,6 +1,6 @@
 var app = angular.module("studentResults");
 
-app.controller("teacherProfileCtrl", ["$scope", "$uibModal", "$log", "subjectService", "teacherObjectService", function ($scope, $uibModal, $log, subjectService, teacherObjectService) {
+app.controller("teacherProfileCtrl", ["$scope", "$uibModal", "$log", "classService", "teacherObjectService", function ($scope, $uibModal, $log, classService, teacherObjectService) {
 
 
 
@@ -34,27 +34,30 @@ app.controller("teacherProfileCtrl", ["$scope", "$uibModal", "$log", "subjectSer
 
 
 
-    //Subject functions
-    $scope.subjects = [];
+    //class functions
+    $scope.availableClasses = [];
 
-    subjectService.getSubjects().then(function (response) {
-        $scope.subjects = response.data;
-    })
+    classService.getClasses().then(function (response) {
+        $scope.availableClasses = response.data;
+    });
 
 
-    $scope.subjectPost = function (subject) {
-        if (subject === undefined || Object.keys(subject).length === 0) {
-            $scope.subjectInputMessage = "Please input a subject"
+    
+    $scope.classPost = function (classes) {
+        if (classes === undefined || Object.keys(classes).length === 0) {
+            $scope.classInputMessage = "Please input a class"
         } else {
-            subjectService.subjectPost(subject).then(function (response) {
-                $scope.subjects.push(response.data);
-                $scope.subjectInputMessage = ""
+            classService.classPost(classes).then(function (response) {
+                $scope.availableClasses.push(response.data);
+                $scope.classInputMessage = "";
             })
         }
-        $scope.subject = {};
+        $scope.classes = {};
     }
 
 
+    
+    
 
     //teacher
     teacherObjectService.getTeacherObject().then(function (response) {

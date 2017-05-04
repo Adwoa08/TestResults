@@ -25,11 +25,6 @@ classRouter.post("/", function (req, res) {
 });
 
 
-
-
-
-
-
 //Students adding a class
 classRouter.post("/:id/students", function (req, res) {
     Class.findById(req.params.id, function (err, oneClass) {
@@ -39,9 +34,21 @@ classRouter.post("/:id/students", function (req, res) {
                 .populate(oneClass, {path: "students"}, function (err, students) {
                     res.send(students);
                 });
-        })
+        });
     });
 });
+
+
+
+classRouter.delete("/:id/students", function(req, res){
+    Class.findById(req.params.id, function(err, oneClass){
+        oneClass.students.splice(req.user, 1);
+        res.send(oneClass);
+//        Class.populate(oneClass, {path: "students"}, function(err, students){
+//            res.send(students);
+//        })
+    })
+})
 
 
 

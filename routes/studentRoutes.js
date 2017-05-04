@@ -4,10 +4,11 @@ var student = require("../models/studentSchema");
 var Teacher = require("../models/teacherSchema");
 var Class = require("../models/classSchema");
 
-
-
-
-
+studentRouter.get("/me/classes", function(req, res) {
+    Class.find({students: req.user._id}, function(err, classes) {
+        res.send(classes);
+    });
+});
 
 
 

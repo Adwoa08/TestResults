@@ -1,13 +1,13 @@
-
-<div class="row">  
+<!--Profile info starts here-->
+   <div class="row">  
     <div class="col-md-8 col-md-offset-2">
-        <h1>{{userService.currentUser.name }}</h1>
+        <h1>{{userService.currentUser.student.firstName}}</h1>
         <img src="https://static1.squarespace.com/static/54e8ba93e4b07c3f655b452e/t/56c2a04520c64707756f4267/1455596221531/" alt="Kittens" class="img-responsive">
         <hr>
         <div class="row">
             <div class="col-md-4">
-                <h3>Change Password</h3>
-                <form>
+                <button class="btn btn-primary" ng-click="editing = !editing">Change Password</button>
+                <form ng-show="editing">
                     <div class="form-group">
                         <label for="newPassword">New Password</label>
                         <input type="password" id="newPassword" class="form-control" ng-model="passwords.newPassword">
@@ -16,9 +16,18 @@
                         <label for="newPasswordRepeat">Repeat New Password</label>
                         <input type="password" id="newPasswordRepeat" class="form-control" ng-model="passwords.newPasswordRepeat">
                     </div>
-                    <button class="btn btn-primary" ng-click="changePassword(passwords)">Change Password</button>
+                    <button class="btn btn-success" ng-click="savePassword(passwords)">Save</button>
                 </form>
             </div>
         </div>
     </div>
-</div> 
+</div> <!--Profile info ends here-->
+
+
+
+
+<!--Class selection starts here-->
+<select ng-model="selectedClass" ng-options="class as class.className for class in availableClasses"></select>
+<button class="btn btn-success" ng-click="addClass(selectedClass)">add</button>
+
+<p ng-repeat="class in addedClass track by $index">{{class.className}}</p>

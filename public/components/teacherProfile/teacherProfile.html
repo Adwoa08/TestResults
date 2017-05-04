@@ -1,6 +1,6 @@
 <div class="col-md-8 col-md-offset-2">
     <h1>{{teacherFirstName}}</h1>
-    <img src="https://static1.squarespace.com/static/54e8ba93e4b07c3f655b452e/t/56c2a04520c64707756f4267/1455596221531/" alt="Kittens" class="img-responsive">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg" alt="Kittens" class="img-responsive">
     <hr>
 </div>
 
@@ -48,22 +48,23 @@
 
 
 <div class="col-md-8 col-md-offset-2">
-    <h2>Send subject to all students!</h2>
+    <h2>Send your class for the term!</h2>
     <form>
         <div class="form-group">
-            <label for="Subjects">Subject</label>
-            <input placeholder="Type subject name" type="text" id="subject" class="form-control" ng-model="subject.subjectName">
-            <p class="text-danger" ng-show="subjectInputMessage">{{subjectInputMessage}}</p>
+            <label for="class">Class</label>
+            <input placeholder="Class name" type="text" id="class" class="form-control" ng-model="classes.className">
+            <p class="text-danger" ng-show="classInputMessage">{{classInputMessage}}</p>
         </div>
 
-        <button class="btn btn-success" ng-click="subjectPost(subject)">Send</button>
+        <button class="btn btn-success" ng-click="classPost(classes)">Send</button>
     </form>
-    <!--Subject posting form Ends-->
+    <!--Class posting form Ends-->
     
     
     <br>
 
    
+<!--
     <div>
         <table class="table">
             <thead>
@@ -74,5 +75,6 @@
             </thead>
         </table>
     </div>
+-->
 
 </div>

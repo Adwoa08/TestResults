@@ -8,7 +8,7 @@ app.controller("signupCtrl", ["$scope", "$location", "userService", function ($s
             $scope.passwordMessage = "Passwords do not match.";
         } else {
             userService.signup(user).then(function (response) {
-                $location.path("/profile");
+                $location.path("/login");
             }, function (response) {
                 alert("There was a problem: " + response.data);
             });

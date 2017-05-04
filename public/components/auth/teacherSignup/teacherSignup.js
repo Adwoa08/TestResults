@@ -5,7 +5,7 @@ app.controller("teacherSignupCtrl", ["$scope", "$location", "userService", funct
 
     $scope.signup = function (teacher) {
                     userService.teacherSignup(teacher).then(function (response) {
-                $location.path("/login");
+                $location.path("/teacherLogin");
 //        if ($scope.password !== $scope.passwordRepeat) {
 //            $scope.passwordMessage = "Passwords do not match.";
 //        } else {

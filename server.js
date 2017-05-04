@@ -7,6 +7,7 @@ var config = require("./config");
 var mongoose = require("mongoose");
 var path = require("path");
 var teacherRoutes = require("./routes/teacherRoutes");
+var studentRoutes = require("./routes/studentRoutes");
 var classRoutes = require("./routes/classRoutes")
 var userAuthRoutes = require("./routes/userAuthRoutes");
 var expressJwt = require("express-jwt");
@@ -33,8 +34,8 @@ app.use("/auth", userAuthRoutes);
 app.use("/api", expressJwt({secret: config.secret}));
 
 //---posting subjects and results endpoint--
-app.use("/api/classes", classRoutes)
-
+app.use("/api/classes", classRoutes);
+app.use("/api/students", studentRoutes);
 
 //--------connecting mongodb-------------------
 mongoose.connect(config.database, function(){

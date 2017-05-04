@@ -3,7 +3,8 @@ app.service("teacherObjectService", function ($http) {
 
 
     this.getTeacherObject = function(){
-        return $http.get("api/teacher").then(function(response){
+        return $http.get("api/classes").then(function(response){
+            console.log(response);
             return response;
         })
     }

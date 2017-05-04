@@ -3,7 +3,7 @@ var app = angular.module("studentResults.Auth");
 app.service("userService", ["$http", "$location", "tokenService", function ($http, $location, tokenService) {
     var self = this;
 
-//    this.currentUser = {};
+    this.currentUser = localStorage.getItem("user") || {};
 
 
 
@@ -18,6 +18,10 @@ app.service("userService", ["$http", "$location", "tokenService", function ($htt
     this.teacherSignup = function (teacher) {
         return $http.post("auth/teacherSignup", teacher);
     }
+    
+    
+    
+    
     //    
     //     this.getSubjects = function(user, query){
     //        var url = "api/subjects";
@@ -25,12 +29,16 @@ app.service("userService", ["$http", "$location", "tokenService", function ($htt
     //        return $http.get(url)
     //    }
 
+    
+    
 
     //-------login function-------- 
 
     this.login = function (user) {
         return $http.post("auth/studentLogin", user).then(function (response) {
-//            self.currentUser = response.data.firstName;
+            self.currentUser = response.data;
+            console.log(response.data);
+            localStorage.setItem("user", JSON.stringify(response.data));
             tokenService.setToken(response.data.token);
             return response;
         })
@@ -39,6 +47,7 @@ app.service("userService", ["$http", "$location", "tokenService", function ($htt
     this.teacherLogin = function (teacher) {
         return $http.post("auth/teacherLogin", teacher).then(function (response) {
             self.currentUser = response.data.firstName;
+            console.log(self.currentUser);
             tokenService.setToken(response.data.token);
             return response;
         })
@@ -49,6 +58,7 @@ app.service("userService", ["$http", "$location", "tokenService", function ($htt
     //-------logout function-------- 
     this.logout = function () {
         tokenService.removeToken();
+        localStorage.removeItem("user");
         $location.path("/");
     }
     
