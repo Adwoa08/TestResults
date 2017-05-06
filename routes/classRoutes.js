@@ -40,10 +40,12 @@ classRouter.post("/:id/students", function (req, res) {
 
 
 
-classRouter.delete("/:id/students", function(req, res){
+classRouter.delete("/:id/students/:id", function(req, res){
     Class.findById(req.params.id, function(err, oneClass){
         oneClass.students.splice(req.user, 1);
-        res.send(oneClass);
+        oneClass.save(function(err) {
+            res.send(oneClass);
+        })
 //        Class.populate(oneClass, {path: "students"}, function(err, students){
 //            res.send(students);
 //        })

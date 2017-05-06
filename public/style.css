@@ -3,11 +3,11 @@
     margin: 0;
 }
 
-/*
-body {
-    background-image: url("images/joe-shillington-240205.jpg");
+
+#jumbo {
+    margin-top: -19px;
 }
-*/
+
 
 .clear {
     clear: both;
@@ -17,8 +17,6 @@ body {
 .home-bg {
     background-image: url("images/joe-shillington-240205.jpg");
     background-size: cover;
-    /*
-    width: 100vw;
     height: 100vh;
-*/
+    margin-top: -20px;
 }
