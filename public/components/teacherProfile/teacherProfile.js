@@ -1,6 +1,6 @@
 var app = angular.module("studentResults");
 
-app.controller("teacherProfileCtrl", ["$scope", "$uibModal", "$log", "classService", "teacherObjectService", function ($scope, $uibModal, $log, classService, teacherObjectService) {
+app.controller("teacherProfileCtrl", ["$scope", "$uibModal", "$log", "classService", "teacherObjectService", "fileModelService", function ($scope, $uibModal, $log, classService, teacherObjectService, fileModelService) {
 
 
 
@@ -66,4 +66,11 @@ app.controller("teacherProfileCtrl", ["$scope", "$uibModal", "$log", "classServi
 
 
 
+    
+    //upload function
+    $scope.pic = {};
+    $scope.upload = function(){
+        var uploadUrl = "/uploads";
+        fileModelService.post(uploadUrl, $scope.pic);
+    }
 }]);

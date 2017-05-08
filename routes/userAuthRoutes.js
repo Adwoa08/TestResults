@@ -125,4 +125,10 @@ userAuthRouter.post("/teacherLogin", function (req, res) {
     })
 });
 
+userAuthRouter.post('/upload', function(req, res){
+    console.log(req.body);
+    console.log(req.files);
+    res.send({success: true});
+})
+
 module.exports = userAuthRouter;

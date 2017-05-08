@@ -11,6 +11,7 @@ var studentRoutes = require("./routes/studentRoutes");
 var classRoutes = require("./routes/classRoutes")
 var userAuthRoutes = require("./routes/userAuthRoutes");
 var expressJwt = require("express-jwt");
+var multer = require("multer");
 
 //--------checking my code for error details-----
 app.use(morgan("dev"));
@@ -22,6 +23,8 @@ app.use(bodyParser.json());
 
 //--------connecting my front End-------
 app.use(express.static(path.join(__dirname, "public")));
+
+//app.use(multer({dest: "./uploads"}));
 
 
 
